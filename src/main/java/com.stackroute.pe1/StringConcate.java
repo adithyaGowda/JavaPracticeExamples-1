@@ -13,22 +13,33 @@ public class StringConcate {
 //        int n = scn1.nextInt();
 //    }
 
+
     public String concateString(int n,String input){
 
+        /*  
+            Strings are immutable objects. 
+            So, when you change the contents of a string you define, the contents of that object do not change.
+            Although it seems to be changing, one more copy is created on the background memory.
+        */
 
-
-        String data = "";
+        /*
+            You should use StringBuilder instead.
+            When you create an object instance from the StringBuilder class and make the changes on that instance,
+            no duplicate instance will be created on the memory, and the existing object instance will be used.
+        */
+          
+        StringBuilder data = new StringBuilder(); //     
 
         if(input == null)
             return null;
 
         for(int i=0;i<n;i++) {
             for (int j = input.length() - n; j < input.length(); j++) {
-                data = data + (input.charAt(j));
+                data.append(input.charAt(j));
             }
 
         }
-            String x = (input + data);
+        String x = (input + data);
 
     return x;
     }
